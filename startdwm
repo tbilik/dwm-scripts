@@ -1,0 +1,14 @@
+## my start up script dwmstart
+#!/bin/bash
+xrdb ~/.Xresources
+xmodmap ~/.xmodmap
+compton -b
+nitrogen --restore
+xinput --set-prop "ETPS/2 Elantech Touchpad" "libinput Tapping Enabled" 1
+dwm_status &
+while true; do
+    # Log stderror to a file 
+    dwm 2> ~/.dwm.log
+    # No error logging
+    #dwm >/dev/null 2>&1
+done
